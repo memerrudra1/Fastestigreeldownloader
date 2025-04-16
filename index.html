@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instagram Reel Downloader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #111;
+    }
+    input {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .msg {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Instagram Reel Downloader</h1>
+  <input type="text" id="reelUrl" placeholder="Paste Instagram reel URL here" />
+  <button onclick="downloadReel()">Download Reel</button>
+  <div class="msg" id="msg"></div>
+
+  <script>
+    function downloadReel() {
+      const url = document.getElementById("reelUrl").value.trim();
+      const msg = document.getElementById("msg");
+
+      if (!url.includes("instagram.com/reel")) {
+        msg.innerText = "Please enter a valid Instagram reel link.";
+        return;
+      }
+
+      // Redirect to 3rd-party downloader (keeps it simple)
+      const encodedUrl = encodeURIComponent(url);
+      window.location.href = `https://igram.world/?url=${encodedUrl}`;
+    }
+  </script>
+</body>
+</html>
